@@ -1,0 +1,58 @@
+<!--
+Project: Note Manager
+Link: https://www.youtube.com/watch?v=9494-2E4riQ 29:53
+-->
+
+<head>
+  <title>Note Manager</title>
+</head>
+
+<body>
+  
+   <nav>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Meteor Notes</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="nav-item">
+            <a class="waves-effect waves-light btn modal-trigger" href="#addNote">Add Note</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <h3>Latest Notes</h3>
+    <ul class="collection">
+      {{#each notes}}
+        {{> note }}
+      {{/each}}
+    </ul>
+  </div>
+  
+  {{> add }}
+  
+  <script>
+  /* global $ */
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
+</body>
+
+<template name="note">
+  <li class="collection-item">{{text}}</li>
+</template>
+
+<template name="add">
+  <div id="addNote" class="modal">
+    <div class="modal-content">
+      <h3>Add Note</h3>
+      <form class="add-form">
+        <input type="text" name="note"/>
+      </form>
+    </div>
+  </div>
+</template>
